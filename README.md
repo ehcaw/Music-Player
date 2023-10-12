@@ -21,4 +21,4 @@ The user has a laptop that can download the application in order to use it. The 
 People are meant to organize playlists and listen to them; can shuffle, loop, maybe do mixing of playlists too. 
 
 ### Plan and Approach:
-Create a GUI for the user to interact with in order to add songs, create playlists, etc. The music is stored via some type of list and can be accessed when the user interacts with the GUI. The application should be able to locally store additional information about the song files, such as the title, artist, song picture, etc and display it on the interface for the user to see. 
+Create a GUI for the user to interact with in order to add songs, create playlists, etc. The music is stored via some type of list and can be accessed when the user interacts with the GUI. The application should be able to locally store additional information about the song files, such as the title, artist, song picture, etc and display it on the interface for the user to see. We will be using Java, the Java sound library to implement the audio features, and then Netbeans to create a GUI. 
