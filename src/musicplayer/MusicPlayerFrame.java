@@ -3,10 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package musicplayer;
-
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import  javax.swing.JButton;
+import javax.swing.event.MouseInputListener;
+import javax.swing.plaf.basic.BasicButtonUI;
 /**
  *
- * @author anhad
+ * @author Anhadh Sran
  */
 public class MusicPlayerFrame extends javax.swing.JFrame {
 
@@ -15,6 +20,42 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
      */
     public MusicPlayerFrame() {
         initComponents();
+        JButton[] buttons = {jButton1, jButton2, jButton3}; // An array to set the appearence for the buttons
+        for (JButton button: buttons) { 
+            button.setBackground(new Color(20, 25, 30)); // Sets the background color for the buttons
+            button.setUI(new BasicButtonUI());
+            button.addMouseListener(new MouseInputListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                    button.setBackground(new Color(54, 81, 207)); // Changes the color of button to blue when mouse hovers on it
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                    button.setBackground(new Color(20, 25, 30)); // Resets the button color to original when mouse is not hovering on it
+                }
+
+                @Override
+                public void mouseDragged(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseMoved(MouseEvent e) {
+                }
+            });
+        }
     }
 
     /**
@@ -54,27 +95,17 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         rootPanel.setLayout(new java.awt.BorderLayout());
 
         sidePanel.setBackground(new java.awt.Color(20, 25, 30));
-        sidePanel.setPreferredSize(new java.awt.Dimension(90, 0));
+        sidePanel.setPreferredSize(new java.awt.Dimension(80, 0));
+        sidePanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 5, 20));
 
         jPanel3.setBackground(new java.awt.Color(20, 25, 30));
-        jPanel3.setPreferredSize(new java.awt.Dimension(80, 250));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 80, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
-
+        jPanel3.setPreferredSize(new java.awt.Dimension(60, 240));
         sidePanel.add(jPanel3);
 
         jButton1.setBackground(new java.awt.Color(240, 240, 240));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Home.png"))); // NOI18N
-        jButton1.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/home (1).png"))); // NOI18N
+        jButton1.setAlignmentX(0.5F);
+        jButton1.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -83,8 +114,9 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         sidePanel.add(jButton1);
 
         jButton2.setBackground(new java.awt.Color(240, 240, 240));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Music.png"))); // NOI18N
-        jButton2.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/books.png"))); // NOI18N
+        jButton2.setAlignmentX(0.5F);
+        jButton2.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -93,8 +125,9 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         sidePanel.add(jButton2);
 
         jButton3.setBackground(new java.awt.Color(240, 240, 240));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Search.png"))); // NOI18N
-        jButton3.setPreferredSize(new java.awt.Dimension(50, 50));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/loupe.png"))); // NOI18N
+        jButton3.setAlignmentX(0.5F);
+        jButton3.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -103,16 +136,17 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         sidePanel.add(jButton3);
 
         jPanel1.setBackground(new java.awt.Color(20, 25, 30));
+        jPanel1.setPreferredSize(new java.awt.Dimension(60, 100));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         sidePanel.add(jPanel1);
@@ -125,11 +159,11 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         centerPanel.setLayout(centerPanelLayout);
         centerPanelLayout.setHorizontalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1023, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         centerPanelLayout.setVerticalGroup(
             centerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 721, Short.MAX_VALUE)
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
 
         rootPanel.add(centerPanel, java.awt.BorderLayout.CENTER);
