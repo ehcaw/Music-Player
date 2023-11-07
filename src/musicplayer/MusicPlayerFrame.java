@@ -3,41 +3,28 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package musicplayer;
-import java.awt.BorderLayout;
-import javax.swing.JScrollBar;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import javax.swing.JButton;
-import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JTextField;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import javax.swing.event.MouseInputListener;
 import javax.swing.plaf.basic.BasicButtonUI;
 /**
- *
- * @author Anhadh Sran
+ * This class creates the GUI that the user interacts with.
+ * 
+ * @author Anhadh Sran, Austin Trinh, Maria Sanchez Rodriguez, Ryan Nguyen
  */
 public class MusicPlayerFrame extends javax.swing.JFrame {
 
     /**
      * Creates new form MusicPlayerFrame
-     */
-        
+     */  
     public MusicPlayerFrame() {
-        // super()
         initComponents();
-        home();
-        JButton[] buttons = {homeButton, libraryButton, searchButton, rewindButton, playButton, forwardButton, sortButton}; // An array to set the appearence for the buttons
+        home(); // The home page appears when the application starts up 
+        JButton[] buttons = {homeButton, libraryButton, searchButton, rewindButton, playButton, forwardButton, sortButton};
         for (JButton button: buttons) { 
             button.setBackground(new Color(20,25,30)); // Sets the background color for the buttons
             button.setUI(new BasicButtonUI());
@@ -57,15 +44,7 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
                         centerPanelBottom.setBackground(Color.WHITE);
                     }
                 }
-
-                @Override
-                public void mousePressed(MouseEvent e) {
-                }
-
-                @Override
-                public void mouseReleased(MouseEvent e) {
-                }
-
+                
                 @Override
                 public void mouseEntered(MouseEvent e) {
                     button.setBackground(new Color(54, 81, 207)); // Changes the color of button to blue when mouse hovers on it
@@ -76,14 +55,17 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
                     button.setBackground(new Color(20, 25, 30)); // Resets the button color to original when mouse is not hovering on it
                 }
 
+                // Unused abstract methods - DO NOT DELETE
                 @Override
-                public void mouseDragged(MouseEvent e) {
-                }
-
+                public void mouseDragged(MouseEvent e) {}
                 @Override
-                public void mouseMoved(MouseEvent e) {
-                }
+                public void mouseMoved(MouseEvent e) {}
+                @Override
+                public void mousePressed(MouseEvent e) {}
+                @Override
+                public void mouseReleased(MouseEvent e) {}
             });
+            searchTextField.addActionListener(e -> search());
         }
     }
     
@@ -97,6 +79,7 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         centerPanelMiddle.revalidate();
         centerPanelMiddle.repaint();
         
+        // The following lines of code will display a song tile
         int n = 100;
         centerPanelMiddle.setLayout(new GridLayout(10, 1, 1, 2));
         SongTile tile;
@@ -123,7 +106,7 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         centerPanelMiddle.repaint();
         
         centerPanelMiddle.setLayout(new GridLayout(10, 1, 1, 2)); // Sets the layout for library page
-        // Some tests
+        // The following lines of code will display the playlists that user makes
         JPanel test = new JPanel();
         test.setBackground(Color.red);
         centerPanelMiddle.add(test);
@@ -147,7 +130,8 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         centerPanelMiddle.repaint();
         
         centerPanelMiddle.setLayout(new FlowLayout());
-
+        
+        // The following lines of code search for a song in the main file where all songs are stored
     }
     
     /**
@@ -171,7 +155,7 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        searchTextField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
         sortButton = new javax.swing.JButton();
         scrollPaneWin11 = new win11ScrollPane.ScrollPaneWin11();
@@ -284,11 +268,11 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
         jPanel9.setOpaque(false);
         jPanel9.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.RIGHT, 5, 10));
 
-        jTextField1.setBackground(new java.awt.Color(60, 60, 60));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(50, 50, 50), 1, true));
-        jTextField1.setPreferredSize(new java.awt.Dimension(200, 24));
-        jPanel9.add(jTextField1);
+        searchTextField.setBackground(new java.awt.Color(60, 60, 60));
+        searchTextField.setForeground(new java.awt.Color(255, 255, 255));
+        searchTextField.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(50, 50, 50), 1, true));
+        searchTextField.setPreferredSize(new java.awt.Dimension(200, 24));
+        jPanel9.add(searchTextField);
 
         searchButton.setBackground(new java.awt.Color(240, 240, 240));
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/loupe.png"))); // NOI18N
@@ -303,7 +287,6 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
 
         sortButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/more.png"))); // NOI18N
         sortButton.setBorder(null);
-        sortButton.setPreferredSize(new java.awt.Dimension(24, 24));
         jPanel9.add(sortButton);
 
         centerPanelTop.add(jPanel9);
@@ -484,6 +467,7 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new MusicPlayerFrame().setVisible(true);
             }
@@ -507,7 +491,6 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField1;
     private slider.JsliderCustom jsliderCustom1;
     private javax.swing.JButton libraryButton;
     private javax.swing.JButton playButton;
@@ -515,6 +498,7 @@ public class MusicPlayerFrame extends javax.swing.JFrame {
     private javax.swing.JPanel rootPanel;
     private win11ScrollPane.ScrollPaneWin11 scrollPaneWin11;
     private javax.swing.JButton searchButton;
+    private javax.swing.JTextField searchTextField;
     private javax.swing.JPanel sidePanel;
     private javax.swing.JButton sortButton;
     // End of variables declaration//GEN-END:variables

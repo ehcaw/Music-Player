@@ -1,3 +1,5 @@
+package folderParser; // Added a line of code to run in my computer - Anhadh Sran
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
