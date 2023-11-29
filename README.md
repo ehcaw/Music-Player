@@ -22,3 +22,5 @@ People are meant to organize playlists and listen to them; can shuffle, loop, ma
 
 ### Plan and Approach:
 Create a GUI for the user to interact with in order to add songs, create playlists, etc. The music is stored via some type of list and can be accessed when the user interacts with the GUI. The application should be able to locally store additional information about the song files, such as the title, artist, song picture, etc and display it on the interface for the user to see. We will be using Java, the Java sound library to implement the audio features, and then Netbeans to create a GUI. 
+
+Link to new repository: https://github.com/ehcaw/JTunes
