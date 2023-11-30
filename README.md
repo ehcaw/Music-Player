@@ -1,5 +1,5 @@
 # Music-Player
-Team Number 7, Andadh Singh Sran, Austin Trinh, Maria Sanchez Rodriguez, Ryan Nguyen
+Team Number 7, Anhadh Singh Sran, Austin Trinh, Maria Sanchez Rodriguez, Ryan Nguyen
 
 ### Problem: 
 Music is too spread out, there is no way to organize and store all your music in one place. Think about how Youtube has all the music on their website, but you have to search over and over again if you want to change to a new song. 
@@ -24,3 +24,5 @@ People are meant to organize playlists and listen to them; can shuffle, loop, ma
 Create a GUI for the user to interact with in order to add songs, create playlists, etc. The music is stored via some type of list and can be accessed when the user interacts with the GUI. The application should be able to locally store additional information about the song files, such as the title, artist, song picture, etc and display it on the interface for the user to see. We will be using Java, the Java sound library to implement the audio features, and then Netbeans to create a GUI. 
 
 Link to new repository: https://github.com/ehcaw/JTunes
+
+Link to presentation: https://docs.google.com/presentation/d/1fEWIZ7N7Qh_6RY-ZX1X_08F0s9IKzXIfFaaXlmTCsNk/edit?usp=sharing
